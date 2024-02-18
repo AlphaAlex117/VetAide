@@ -3,9 +3,9 @@ function post(url, jsonData) {
     fetch(url, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(jsonData)
+        body: JSON.stringify(jsonData),
     })
     .then(response => response.json())
     .then(data => {
