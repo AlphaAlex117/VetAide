@@ -38,9 +38,9 @@ form.addEventListener('submit', (event) => {
     
     document.getElementById('schedules').innerHTML = JSON.stringify(formData);
 
-    
+    const url = 'http:///127.0.0.1:8000/';
     // Call the post function with the desired URL and JSON data
-    post('', formData);
+    post(url+"make_appointment", formData);
 });
 
 
