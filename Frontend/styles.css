@@ -1,0 +1,62 @@
+
+
+:root{
+   --turquoise: #31aec5;
+   --grey: #dadada;
+   --white: #f8f8f8;
+}
+* {
+    border-style: solid;
+    border-color: red;
+}
+
+
+
+.header {
+   position: sticky;
+   top: 0;
+   background-color: var(--white);
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px;
+}
+.logo {
+min-width: 100px;
+min-height: 100px;
+background-image: url(/VetAide/Frontend/resources/cow.png);
+background-size: cover;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+
+    padding: 0;
+    margin: 0;
+}
+.hero{
+   
+    min-height: 400px;
+    background: url(./resources/daiga-ellaby-J_460ZyUfi8-unsplash.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    padding: 10px;
+    margin: 10px;
+    max-width: 200px;
+    min-height: 300px;
+
+    /* Add any other styles you want for the card */
+}
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<>
+    <div class="header">
+        <div class="logo">
+            
+        </div>
+    <div class="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+</div> 
+
+<form>
+    <label for="operation-category">Operation Category:</label>
+    <select id="operation-category" name="operation-category">
+        <option value="vaccination">Vaccination</option>
+        <option value="insemination">Insemination</option>
+    </select>
+
+    <label for="veterinarian">Veterinarian:</label>
+    <input type="text" id="veterinarian" name="veterinarian">
+
+    <label for="owner">Owner:</label>
+    <input type="text" id="owner" name="owner">
+
+    <label for="appointment-date">Date for Appointment:</label>
+    <input type="date" id="appointment-date" name="appointment-date">
+
+    <label for="patient-name">Patient Name:</label>
+    <input type="text" id="patient-name" name="patient-name">
+
+    <input type="submit" value="Submit">
+</form>
+<p id="schedules"></p>
+<script src="schedules.js"></script>
+
+</body>
+</html>
+

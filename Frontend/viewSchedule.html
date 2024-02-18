@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            
+        </div>
+    <div class="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+
+    
+</div> 
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Owner</th>
+                <th>Veterinarian</th>
+                <th>Patient</th>
+                <th>Purpose</th>
+                <th>Next Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>Dr. Smith</td>
+                <td>Fluffy</td>
+                <td>Vaccination</td>
+                <td>2021-05-01</td>
+            <!-- Generate rows dynamically based on external data -->
+        </tbody>
+    </table>
+</div>
+<script>
+    // Make a GET request to fetch JSON data
+    fetch('your-api-endpoint')
+        .then(response => response.json())
+        .then(data => {
+            // Get the table body element
+            const tableBody = document.querySelector('tbody');
+
+            
+            // Loop through the JSON data and create table rows dynamically
+            data.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.owner}</td>
+                    <td>${item.veterinarian}</td>
+                    <td>${item.patientName}</td>
+                    <td>${item.operationCategory}</td>
+                    <td>${item.appointmentDate}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    
+</script>
+</body>
+
+</html>
