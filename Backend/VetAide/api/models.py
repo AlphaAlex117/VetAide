@@ -1,12 +1,117 @@
 from django.db import models
 import uuid
 from django.utils.translation import gettext_lazy as _
-from typing import Optional
-from pydantic import BaseModel, Field
-from enum import Enum
+from pymongo import MongoClient
+from datetime import datetime
+
+# from typing import Optional
+# from pydantic import BaseModel, Field
+# from enum import Enum
 
 # Create your models here.
 # ORM: Object Relational Models
+
+def setUpDatabase(clusterURL, dbName):
+    client = MongoClient(clusterURL)
+    db = client[dbName]
+    print(f"Setup for database '{dbName}' is ready. Database will be created upon inserting the first document.")
+
+def setUpCollection(clusterURL, dbName, collName):
+    client = MongoClient(clusterURL)
+    # Select the database
+    db = client[dbName]
+    # Prepare the collection object
+    collection = db[collName]
+    print(f"Setup for collection '{collName}' in database '{dbName}' is ready. The collection will be created upon inserting the first document.")
+
+def initCollection(clusterURL, dbName, collName, doc):
+    client = MongoClient(clusterURL)
+    db = client[dbName]
+    collection = db[collName]
+    collection.insert_one(doc)
+    print(f"Database '{dbName}' and collection '{collName}' created with the document inserted.")
+
+def initOwner(clusterURL):
+    doc = {
+        'id': 0,
+        'name': 'John Doe',
+        'phone': '123-456-7890',
+        'e-mail': 'john@doe.com',
+        'address': 'baker street'
+    }
+    dbName = 'VetAide'
+    collName = 'Owner'
+    initCollection(clusterURL,dbName,collName, doc)
+
+def initPatient(clusterURL):
+    doc = {
+        'id': 0,
+        'owner_id': 0,
+        'name': 'john doe',
+        'med_history_id': 0,
+        'category_name': 'MAN',
+        'cateory_size': 'FAT'
+    }
+    dbName = 'VetAide'
+    collName = 'Patient'
+    initCollection(clusterURL,dbName,collName, doc)
+
+def initSchedule(clusterURL):
+    doc = {
+        'id': 0,
+        'operation_category': 'SEX',
+        'date': datetime.strptime('2024-02-18 04:46:51.507162', '%m/%d/%y %H:%M:%S'),
+        'patient':'john doe',
+        'veterinary': 'your mom',
+        'owner': 'John Doe'
+    }
+    dbName = 'VetAide'
+    collName = 'Schedule'
+    initCollection(clusterURL,dbName,collName,doc)
+
+def initMedHistory(clusterURL):
+    doc={
+        'id': 0,
+        'veterinary_id': 0,
+        'date': datetime.strptime('2024-02-18 04:46:51.507162', '%m/%d/%y %H:%M:%S'),
+        'patient': 'john doe',
+        'reason': 'GAY',
+        'photo': ''
+        }
+    dbName= 'VetAide'
+    collName ='Medical History'
+    initCollection(clusterURL,dbName,collName,doc)
+
+def initInventory(clusterURL):
+    doc = {
+        'id': 0,
+        'generic_name': 'Viagra',
+        'brand_name': 'Ricola',
+        'amount' : 1000000.0
+    }
+    dbName = 'VetAide'
+    collName = 'Inventory'
+    initCollection(clusterURL,dbName, collName, doc)
+
+def initPhotos(clusterURL):
+    doc = {
+        'id': 0,
+        'url':''
+    }
+    dbName = 'VetAide'
+    collName = 'Photos'
+    initCollection(clusterURL,dbName,collName,doc)
+
+def initVeterinarian(clusterURL):
+    doc = {
+        'id':0,
+        'name':'jane doe',
+        'username':'admin',
+        'password':'password'
+    }
+    dbName = 'VetAide'
+    collName = 'Veterinarian'
+    initCollection(clusterURL,dbName,collName,doc)
 
 class Owner(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
