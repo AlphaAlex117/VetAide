@@ -4,12 +4,13 @@ from django.http import JsonResponse
 
 ### GET ALL schedules
 def get_all_schedules(request):
-    return None
+    return None #TODO Return list of all schedules
 
 ### GET ALL inventory
 
 
 ### GET all animals
+
 
 ### GET an animal's information
 def animal_information(request):
@@ -31,8 +32,7 @@ def make_appointment(request):
     date = body["appointmentDate"]
     reason = body["operationCategory"]
 
-    
-
+    #TODO Send information to model.py and return response as a json to frontend
     return JsonResponse({'success':True})
 
 ### POST
