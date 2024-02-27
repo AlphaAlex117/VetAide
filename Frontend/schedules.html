@@ -6,8 +6,10 @@
     <title>Inventory</title>
     <link rel="stylesheet" href="styles.css">
 
+    
+
 </head>
-<>
+
     <div class="header">
         <div class="logo">
             
@@ -23,26 +25,38 @@
 
 </div> 
 
-<form>
-    <label for="operation-category">Operation Category:</label>
-    <select id="operation-category" name="operation-category">
-        <option value="vaccination">Vaccination</option>
-        <option value="insemination">Insemination</option>
-    </select>
+<form style="margin-top: 20px;">
+    <div style="margin-bottom: 10px;">
+        <label for="operation-category">Operation Category:</label>
+        <select id="operation-category" name="operation-category">
+            <option value="vaccination">Vaccination</option>
+            <option value="insemination">Insemination</option>
+        </select>
+    </div>
 
-    <label for="veterinarian">Veterinarian:</label>
-    <input type="text" id="veterinarian" name="veterinarian">
+    <div style="margin-bottom: 10px;">
+        <label for="veterinarian">Veterinarian:</label>
+        <input type="text" id="veterinarian" name="veterinarian">
+    </div>
 
-    <label for="owner">Owner:</label>
-    <input type="text" id="owner" name="owner">
+    <div style="margin-bottom: 10px;">
+        <label for="owner">Owner:</label>
+        <input type="text" id="owner" name="owner">
+    </div>
 
-    <label for="appointment-date">Date for Appointment:</label>
-    <input type="date" id="appointment-date" name="appointment-date">
+    <div style="margin-bottom: 10px;">
+        <label for="appointment-date">Date for Appointment:</label>
+        <input type="date" id="appointment-date" name="appointment-date">
+    </div>
 
-    <label for="patient-name">Patient Name:</label>
-    <input type="text" id="patient-name" name="patient-name">
+    <div style="margin-bottom: 10px;">
+        <label for="patient-name">Patient Name:</label>
+        <input type="text" id="patient-name" name="patient-name">
+    </div>
 
-    <input type="submit" value="Submit">
+    <div>
+        <input type="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+    </div>
 </form>
 <p id="schedules"></p>
 <script src="schedules.js"></script>

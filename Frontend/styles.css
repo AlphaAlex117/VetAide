@@ -39,6 +39,7 @@ ul{
     padding: 0;
     margin: 0;
 }
+
 .hero{
    
     min-height: 400px;
@@ -46,7 +47,14 @@ ul{
     background-size: contain;
     background-repeat: no-repeat;
 }
-
+.main-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+}
 .card {
     display: flex;
     flex-direction: column;
